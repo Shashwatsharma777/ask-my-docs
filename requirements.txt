@@ -1,0 +1,25 @@
+# Core
+fastapi==0.115.6
+uvicorn==0.34.0
+python-multipart==0.0.20
+pydantic==2.10.4
+python-dotenv==1.0.1
+
+# Document processing
+pymupdf==1.25.1
+tiktoken==0.8.0
+
+# Prompt config
+pyyaml==6.0.2
+
+# Retrieval
+numpy<2  # torch 2.2.x wheels are built against numpy 1.x
+chromadb==0.6.2
+rank-bm25==0.2.2
+sentence-transformers==3.3.1
+
+# LLM
+google-genai==1.2.0
+
+# Testing
+pytest==8.3.4

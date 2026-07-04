@@ -1,0 +1,3 @@
+{"question": "What is the total premium amount for the policy?", "ground_truth": "REPLACE: exact answer from your test document", "expected_doc": "sample_policy.pdf", "expected_page": 1}
+{"question": "When does the policy expire?", "ground_truth": "REPLACE: exact answer from your test document", "expected_doc": "sample_policy.pdf", "expected_page": 1}
+{"question": "Who is the named insured on this policy?", "ground_truth": "REPLACE: exact answer from your test document", "expected_doc": "sample_policy.pdf", "expected_page": 1}
