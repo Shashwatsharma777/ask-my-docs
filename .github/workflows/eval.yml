@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  test-and-eval:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +21,23 @@ jobs:
 
       - name: Run unit tests
         run: pytest tests/ -v
+
+  # The eval gate needs a GEMINI_API_KEY secret and documents in eval/corpus/.
+  # It is skipped until both exist so the pipeline stays green during setup.
+  eval:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ vars.RUN_EVAL == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Ingest eval corpus
         run: python eval/ingest_corpus.py
